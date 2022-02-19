@@ -21,7 +21,7 @@ type User struct {
 
 type Users []User
 
-func (user *User) Validate() *errors.RestErr {
+func (user *User) ValidateUser() *errors.RestErr {
 	user.FirstName = strings.TrimSpace(user.FirstName)
 	user.LastName = strings.TrimSpace(user.LastName)
 
@@ -32,7 +32,7 @@ func (user *User) Validate() *errors.RestErr {
 
 	user.LastName = strings.TrimSpace(strings.ToLower(user.LastName))
 	if user.LastName == "" {
-		return errors.NewBadRequestError("invalid ast name")
+		return errors.NewBadRequestError("invalid last name")
 	}
 
 	user.Email = strings.TrimSpace(strings.ToLower(user.Email))

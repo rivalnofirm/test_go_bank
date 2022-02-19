@@ -29,7 +29,7 @@ func (s *usersService) GetUser(userId int64) (*users.User, *errors.RestErr) {
 }
 
 func (s *usersService) CreateUser(user users.User) (*users.User, *errors.RestErr) {
-	if err := user.Validate(); err != nil {
+	if err := user.ValidateUser(); err != nil {
 		return nil, err
 	}
 	user.Amount = users.AmountDefault
