@@ -1,7 +1,11 @@
 package main
 
-import "github.com/rivalnofirm/test_go_bank/app"
+import (
+	"github.com/rivalnofirm/test_go_bank/api"
+	"github.com/rivalnofirm/test_go_bank/database"
+)
 
 func main() {
-	app.StartApplication()
+	database.InitDatabase()
+	api.StartApi()
 }
